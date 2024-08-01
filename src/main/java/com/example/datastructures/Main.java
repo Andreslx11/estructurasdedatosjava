@@ -1,7 +1,9 @@
 package com.example.datastructures;
 
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -193,24 +195,59 @@ public class Main {
 
 
 
+/*************************************************************************************************/
 
 
 
 
 
+/************************  Preferencia por Interfaces en Lugar de Clases Concretas  **************************/
+
+
+    /*    List<String> nombres7 = new LinkedList<>()     /  LinkedList<String> nombres8 = new LinkedList<>();  */
 
 
 
+/*
+ 1. Uso de Interfaces (`List<String>`):
+   - Ofrece flexibilidad para cambiar la implementación subyacente sin modificar el código que utiliza la variable.
+   - Permite cambiar la implementación de la lista (por ejemplo, de `LinkedList` a `ArrayList`) fácilmente.
+                */
+
+   // Ejemplo:
+   // Declaración utilizando la interfaz List
+   List<String> nombres7 = new LinkedList<>();
+   nombres7.add("Juan");
+   nombres7.add("Ana");
+
+   // Cambiar la implementación a ArrayList sin modificar el código que usa la lista
+   nombres7 = new ArrayList<>();
+   nombres7.add("Luis");
+   nombres7.add("Maria");
+
+/*
+  2. Uso de Clases Concretas (`LinkedList<String>`):
+   - Está acoplado a una implementación específica, lo que puede limitar la flexibilidad.
+   - Requiere cambios en la declaración de la variable y posiblemente en el código que interactúa con ella si decides cambiar la implementación.
+*/
 
 
+ //  Ejemplo:
+   // Declaración utilizando la clase concreta LinkedList
+   LinkedList<String> nombres8 = new LinkedList<>();
+   nombres8.add("Juan");
+   nombres8.add("Ana");
 
+   // Para cambiar a ArrayList, necesitarías modificar la declaración
+   ArrayList<String> nombres9 = new ArrayList<>();
+   nombres9.add("Luis");
+   nombres9.add("Maria");
 
-
-
-
-
-
-
+  /*
+     El uso de interfaces sigue el principio de programación orientada a interfaces, lo que promueve
+     un diseño de código más limpio y modular. Al programar contra interfaces en lugar de implementaciones
+     concretas, se mejora la mantenibilidad y la flexibilidad del código.
+ */
 
     }
 
